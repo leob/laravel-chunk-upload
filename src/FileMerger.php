@@ -44,7 +44,9 @@ class FileMerger
         }
 
         // read and write in buffs
-        while ($buff = fread($in, 4096)) {
+        // while ($buff = fread($in, 4096)) {
+        // https://github.com/pionl/laravel-chunk-upload/issues/72
+        while ($buff = fread($in, 16384)) {
             fwrite($this->destinationFile, $buff);
         }
 

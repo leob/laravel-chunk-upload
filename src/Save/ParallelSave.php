@@ -98,6 +98,9 @@ class ParallelSave extends ChunkSave
      */
     protected function buildFullFileFromChunks()
     {
+// https://github.com/pionl/laravel-chunk-upload/issues/57
+// TODO more robust solution??
+sleep(3);
         $chunkFiles = $this->getSavedChunksFiles()->all();
 
         if (0 === count($chunkFiles)) {
